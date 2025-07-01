@@ -1,9 +1,10 @@
-import { useLayoutEffect, useEffect, useRef, useState, type JSX } from "react";
+import { useEffect, useRef, useState, type JSX } from "react";
 import { FiMenu } from "react-icons/fi";
-import Icon from "../ui/Icon";
+import Icon from "../../ui/Icon";
 import clsx from "clsx";
 import NavbarIcons from "./NavbarIcons";
 import NavList from "../navbar/NavList";
+import { Link } from "react-router";
 
 const SCROLL_THRESHOLD = 400;
 
@@ -21,7 +22,7 @@ function Navbar(): JSX.Element {
     setShowNav(false);
   };
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (navRef.current) {
       setNavHeight(navRef.current.offsetHeight);
     }
@@ -61,10 +62,10 @@ function Navbar(): JSX.Element {
             onClick={openMenu}
             label="Menu"
           />
-          <a href="#" className="text-xl font-semibold tracking-wider">
+          <Link to="/" className="text-xl font-semibold tracking-wider">
             Cielo
-          </a>
-          <NavList showNav={showNav} onClick={closeMenu} />
+          </Link>
+          <NavList showNav={showNav} closeMenu={closeMenu} />
           <NavbarIcons />
         </nav>
       </header>

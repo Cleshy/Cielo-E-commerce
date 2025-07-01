@@ -1,13 +1,14 @@
 import { type JSX } from "react";
 import { IoClose } from "react-icons/io5";
-import Icon from "../ui/Icon";
+import Icon from "../../ui/Icon";
+import { Link } from "react-router";
 
 type NavListType = {
   showNav: boolean;
-  onClick: () => void;
+  closeMenu: () => void;
 };
 
-function NavList({ showNav, onClick }: NavListType): JSX.Element {
+function NavList({ showNav, closeMenu }: NavListType): JSX.Element {
   return (
     <div
       className={`absolute top-0 left-0 md:relative md:translate-x-0 bg-white w-full h-screen md:w-auto md:h-auto p-5 md:p-0 transition-all duration-300 ease-in-out ${
@@ -15,31 +16,35 @@ function NavList({ showNav, onClick }: NavListType): JSX.Element {
       }`}
     >
       <div className="flex items-center justify-between border-b border-gray-200 md:border-none pt-2 md:pt-0 pb-5 md:pb-0">
-        <a href="#" className="text-lg font-semibold md:hidden">
+        <Link to="/" className="text-lg font-semibold md:hidden">
           Cielo
-        </a>
-        <Icon className="md:hidden" icon={IoClose} onClick={onClick} />
+        </Link>
+        <Icon className="md:hidden" icon={IoClose} onClick={closeMenu} />
       </div>
       <ul className="flex flex-col md:flex-row gap-4 md:gap-8 mt-3 md:mt-0">
         <li>
-          <a href="#" className="hover:underline">
+          <Link to="/shop" onClick={closeMenu} className="hover:underline">
             Shop
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="#" className="hover:underline">
+          <Link
+            to="/categories"
+            onClick={closeMenu}
+            className="hover:underline"
+          >
             Categories
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="#" className="hover:underline">
+          <Link to="/about" onClick={closeMenu} className="hover:underline">
             About
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="#" className="hover:underline">
+          <Link to="/contact" onClick={closeMenu} className="hover:underline">
             Contact
-          </a>
+          </Link>
         </li>
       </ul>
     </div>
