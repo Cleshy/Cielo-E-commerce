@@ -51,7 +51,7 @@ function Navbar(): JSX.Element {
       <header
         ref={navRef}
         className={clsx(
-          "bg-white w-full transition-all duration-300 ease-in-out z-50 p-5",
+          "bg-white w-full transition-all duration-300 ease-in-out z-50 p-5 shadow",
           isFixed ? "fixed top-0" : "relative"
         )}
       >
@@ -62,7 +62,10 @@ function Navbar(): JSX.Element {
             onClick={openMenu}
             label="Menu"
           />
-          <Link to="/" className="text-xl font-semibold tracking-wider">
+          <Link
+            to="/"
+            className="text-xl lg:text-3xl font-semibold tracking-wider"
+          >
             Cielo
           </Link>
           <NavList showNav={showNav} closeMenu={closeMenu} />

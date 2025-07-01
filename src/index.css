@@ -2,13 +2,25 @@
 
 @import "tailwindcss";
 
+/* Dark Mode TailwindCSS V4.1 */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
+  /* Font - Inter */
   --font-inter: "Inter", sans-serif;
+
+  /* Brand */
+  --color-brand: #b8860b;
+  --color-brand-light: #c19a6b;
+  --color-brand-dark: #8b6508;
+  --color-brand-bg: #f5f5dc;
+  --color-brand-neutral-light: #f1f1f1;
+  --color-brand-neutral-dark: #4b4b4b;
 }
 
 @layer base {
   body {
     font-family: var(--font-inter);
-    background-color: var(--color-stone-100);
+    background-color: var(--color-stone-50);
   }
 }

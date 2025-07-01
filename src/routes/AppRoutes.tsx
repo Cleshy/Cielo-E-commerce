@@ -6,7 +6,7 @@ import Layout from "../components/layout/Layout";
 import Home from "../pages/Home";
 import About from "../pages/About";
 import Contact from "../pages/Contact";
-import Shop from "../pages/Shop";
+import Collection from "../pages/Collection";
 import Categories from "../pages/Categories";
 import Login from "../pages/Login";
 import Wishlist from "../pages/Wishlist";
@@ -21,7 +21,7 @@ function AppRoutes(): JSX.Element {
         <Route path="about" element={<About />} />
         <Route path="categories" element={<Categories />} />
         <Route path="contact" element={<Contact />} />
-        <Route path="shop" element={<Shop />} />
+        <Route path="collection" element={<Collection />} />
         <Route path="login" element={<Login />} />
         <Route path="wishlist" element={<Wishlist />} />
         <Route path="cart" element={<Cart />} />
