@@ -16,15 +16,23 @@ function NavList({ showNav, closeMenu }: NavListType): JSX.Element {
       }`}
     >
       <div className="flex items-center justify-between border-b border-gray-200 md:border-none pt-2 md:pt-0 pb-5 md:pb-0">
-        <Link to="/" className="text-lg font-semibold md:hidden">
+        <Link
+          to="/"
+          onClick={closeMenu}
+          className="text-lg font-semibold md:hidden"
+        >
           Cielo
         </Link>
         <Icon className="md:hidden" icon={IoClose} onClick={closeMenu} />
       </div>
       <ul className="flex flex-col md:flex-row gap-4 md:gap-8 mt-3 md:mt-0">
         <li>
-          <Link to="/shop" onClick={closeMenu} className="hover:underline">
-            Shop
+          <Link
+            to="/collection"
+            onClick={closeMenu}
+            className="hover:underline"
+          >
+            The Collection
           </Link>
         </li>
         <li>
