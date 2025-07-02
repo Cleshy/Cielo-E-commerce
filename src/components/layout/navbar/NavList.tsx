@@ -15,7 +15,7 @@ function NavList({ showNav, closeMenu }: NavListType): JSX.Element {
         showNav ? "translate-x-0" : "-translate-x-[150%]"
       }`}
     >
-      <div className="flex items-center justify-between border-b border-gray-200 md:border-none pt-2 md:pt-0 pb-5 md:pb-0">
+      <div className="flex items-center justify-between pt-2 pb-5 border-b border-gray-200 md:border-none md:pt-0 md:pb-0">
         <Link
           to="/"
           onClick={closeMenu}
@@ -25,7 +25,7 @@ function NavList({ showNav, closeMenu }: NavListType): JSX.Element {
         </Link>
         <Icon className="md:hidden" icon={IoClose} onClick={closeMenu} />
       </div>
-      <ul className="flex flex-col md:flex-row gap-4 md:gap-8 mt-3 md:mt-0">
+      <ul className="flex flex-col gap-4 mt-3 md:flex-row md:gap-8 md:mt-0">
         <li>
           <Link
             to="/collection"

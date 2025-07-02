@@ -18,7 +18,7 @@ function NavbarIcons(): JSX.Element {
         </Link>
         <Link
           to="/wishlist"
-          className="hidden xl:block text-sm hover:underline"
+          className="hidden text-sm xl:block hover:underline"
         >
           Wishlist
         </Link>
@@ -27,7 +27,7 @@ function NavbarIcons(): JSX.Element {
         <Link to="/login">
           <Icon icon={FaRegUser} label="Account" />
         </Link>
-        <Link to="/login" className="hidden xl:block text-sm hover:underline">
+        <Link to="/login" className="hidden text-sm xl:block hover:underline">
           Login
         </Link>
       </div>
@@ -35,7 +35,7 @@ function NavbarIcons(): JSX.Element {
         <Link to="/cart">
           <Icon icon={FiShoppingCart} label="Cart" />
         </Link>
-        <Link to="/cart" className="hidden xl:block text-sm hover:underline">
+        <Link to="/cart" className="hidden text-sm xl:block hover:underline">
           Cart
         </Link>
       </div>

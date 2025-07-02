@@ -5,7 +5,7 @@ function Layout() {
   return (
     <>
       <Navbar />
-      <main className="container mx-auto px-4 lg:px-20">
+      <main className="container px-4 mx-auto lg:px-20">
         <Outlet />
       </main>
     </>
