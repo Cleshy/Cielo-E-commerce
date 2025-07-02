@@ -13,22 +13,22 @@ import portrait_6 from "../../assets/portraits/portrait_6.webp";
 
 function Hero(): JSX.Element {
   return (
-    <section className="mt-12 flex flex-col lg:flex-row items-center lg:items-start justify-between">
-      <div className="flex-1 flex flex-col items-center lg:items-start lg:mt-10">
-        <p className="text-sm uppercase tracking-widest text-gray-500 text-center mb-4">
+    <section className="flex flex-col items-center justify-between mt-12 lg:flex-row lg:items-start">
+      <div className="flex flex-col items-center flex-1 lg:items-start lg:mt-10">
+        <p className="mb-4 text-sm tracking-widest text-center text-gray-500 uppercase">
           Timeless Essentials
         </p>
         <h1 className="text-4xl font-semibold text-center lg:text-left">
           Subtle Elegance. Uncompromising Quality.
         </h1>
-        <p className="text-center lg:text-left text-gray-600 mt-4">
+        <p className="mt-4 text-center text-gray-600 lg:text-left">
           Discover garments that whisper refinement, not shout for attention.
         </p>
 
-        <Button className="bg-brand hover:bg-brand-dark transition-all duration-200 py-2 px-4 rounded text-white text-lg font-semibold tracking-wide my-8">
+        <Button className="px-4 py-2 my-8 text-lg font-semibold tracking-wide text-white transition-all duration-200 rounded bg-brand hover:bg-brand-dark">
           Explore the Collection
         </Button>
-        <ul className="mt-2 flex flex-col gap-1 lg:-ml-2">
+        <ul className="flex flex-col gap-1 mt-2 lg:-ml-2">
           <li className="flex items-center gap-0.5 text-gray-600">
             <Icon icon={IoMdArrowDropright} size="1.75rem" color="#b8860b" />
             Premium craftsmanship
@@ -44,42 +44,43 @@ function Hero(): JSX.Element {
         </ul>
         <div className="flex mt-6 lg:mt-10">
           <img
-            className="rounded-full opacity-90 border-2 border-brand-dark w-10 h-10"
+            className="w-10 h-10 border-2 rounded-full opacity-90 border-brand-dark"
             src={portrait_1}
             alt="Customer portrait"
           />
           <img
-            className="rounded-full opacity-90 border-2 border-brand-dark -ml-3 w-10 h-10"
+            className="w-10 h-10 -ml-3 border-2 rounded-full opacity-90 border-brand-dark"
             src={portrait_2}
             alt="Customer portrait"
           />
           <img
-            className="rounded-full opacity-90 border-2 border-brand-dark -ml-3 w-10 h-10"
+            className="w-10 h-10 -ml-3 border-2 rounded-full opacity-90 border-brand-dark"
             src={portrait_3}
             alt="Customer portrait"
           />
           <img
-            className="rounded-full opacity-90 border-2 border-brand-dark -ml-3 w-10 h-10"
+            className="w-10 h-10 -ml-3 border-2 rounded-full opacity-90 border-brand-dark"
             src={portrait_4}
             alt="Customer portrait"
           />
           <img
-            className="rounded-full opacity-90 border-2 border-brand-dark -ml-3 w-10 h-10"
+            className="w-10 h-10 -ml-3 border-2 rounded-full opacity-90 border-brand-dark"
             src={portrait_5}
             alt="Customer portrait"
           />
           <img
-            className="rounded-full opacity-90 border-2 border-brand-dark -ml-3 w-10 h-10"
+            className="w-10 h-10 -ml-3 border-2 rounded-full opacity-90 border-brand-dark"
             src={portrait_6}
             alt="Customer portrait"
           />
         </div>
-        <p className="mt-2 text-brand-neutral-dark italic">
+        <p className="mt-2 italic text-brand-neutral-dark">
           Join those who already made the choice.
         </p>
       </div>
       <img
-        className="hidden md:block flex-1 w-100 max-w-lg mt-20"
+        loading="eager"
+        className="flex-1 hidden max-w-lg mt-20 md:block w-100"
         src={heroImg}
         alt="An image of a luxury parfume."
       />
