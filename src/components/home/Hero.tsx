@@ -3,6 +3,7 @@ import Button from "../ui/Button";
 import { IoMdArrowDropright } from "react-icons/io";
 import Icon from "../ui/Icon";
 import heroImg from "../../assets/hero_img.png";
+import { Link } from "react-router-dom";
 
 import portrait_1 from "../../assets/portraits/portrait_1.webp";
 import portrait_2 from "../../assets/portraits/portrait_2.webp";
@@ -25,9 +26,11 @@ function Hero(): JSX.Element {
           Discover garments that whisper refinement, not shout for attention.
         </p>
 
-        <Button className="px-4 py-2 my-8 text-lg font-semibold tracking-wide text-white transition-all duration-200 rounded bg-brand hover:bg-brand-dark">
-          Explore the Collection
-        </Button>
+        <Link to="/products">
+          <Button className="px-4 py-2 my-8 text-lg font-semibold tracking-wide text-white transition-all duration-200 rounded bg-brand hover:bg-brand-dark">
+            Explore the Collection
+          </Button>
+        </Link>
         <ul className="flex flex-col gap-1 mt-2 lg:-ml-2">
           <li className="flex items-center gap-0.5 text-gray-600">
             <Icon icon={IoMdArrowDropright} size="1.75rem" color="#b8860b" />

@@ -6,12 +6,13 @@ import Layout from "../components/layout/Layout";
 import Home from "../pages/Home";
 import About from "../pages/About";
 import Contact from "../pages/Contact";
-import Collection from "../pages/Collection";
+import Products from "../pages/Products";
 import Categories from "../pages/Categories";
 import Login from "../pages/Login";
 import Wishlist from "../pages/Wishlist";
 import Cart from "../pages/Cart";
 import NotFound from "../pages/NotFound";
+import Product from "../pages/Product";
 
 function AppRoutes(): JSX.Element {
   return (
@@ -21,7 +22,8 @@ function AppRoutes(): JSX.Element {
         <Route path="about" element={<About />} />
         <Route path="categories" element={<Categories />} />
         <Route path="contact" element={<Contact />} />
-        <Route path="collection" element={<Collection />} />
+        <Route path="products" element={<Products />} />
+        <Route path="products/:id" element={<Product />} />
         <Route path="login" element={<Login />} />
         <Route path="wishlist" element={<Wishlist />} />
         <Route path="cart" element={<Cart />} />

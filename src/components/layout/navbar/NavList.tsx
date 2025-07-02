@@ -27,11 +27,7 @@ function NavList({ showNav, closeMenu }: NavListType): JSX.Element {
       </div>
       <ul className="flex flex-col gap-4 mt-3 md:flex-row md:gap-8 md:mt-0">
         <li>
-          <Link
-            to="/collection"
-            onClick={closeMenu}
-            className="hover:underline"
-          >
+          <Link to="/products" onClick={closeMenu} className="hover:underline">
             The Collection
           </Link>
         </li>
