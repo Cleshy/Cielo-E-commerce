@@ -27,7 +27,7 @@ function Hero(): JSX.Element {
         </p>
 
         <Link to="/products">
-          <Button className="px-4 py-2 my-8 text-lg font-semibold tracking-wide text-white transition-all duration-200 rounded bg-brand hover:bg-brand-dark">
+          <Button size="lg" className="my-6">
             Explore the Collection
           </Button>
         </Link>

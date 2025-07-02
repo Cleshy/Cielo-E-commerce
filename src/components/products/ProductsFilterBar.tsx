@@ -9,10 +9,7 @@ type ProductsFilterBarProps = {
 function ProductsFilterBar({ onClick }: ProductsFilterBarProps) {
   return (
     <div className="flex items-center justify-between">
-      <Button
-        onClick={onClick}
-        className="px-4 py-2 text-white transition-all duration-200 ease-in-out rounded bg-brand hover:bg-brand-dark"
-      >
+      <Button onClick={onClick} size="lg">
         Filter
       </Button>
       <Icon icon={FaSortAmountDown} className="text-brand" size="1.5rem" />
