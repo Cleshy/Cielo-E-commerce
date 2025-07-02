@@ -55,7 +55,7 @@ function Navbar(): JSX.Element {
           isFixed ? "fixed top-0" : "relative"
         )}
       >
-        <nav className="container mx-auto flex items-center lg:px-20 gap-4 md:gap-0 md:justify-between">
+        <nav className="container flex items-center gap-4 mx-auto lg:px-20 md:gap-0 md:justify-between">
           <Icon
             className="md:hidden"
             icon={FiMenu}
@@ -64,7 +64,7 @@ function Navbar(): JSX.Element {
           />
           <Link
             to="/"
-            className="text-xl lg:text-3xl font-semibold tracking-wider"
+            className="text-xl font-semibold tracking-wider md:text-2xl lg:text-3xl"
           >
             Cielo
           </Link>
