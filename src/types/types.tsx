@@ -26,3 +26,11 @@ export type ProductType = {
   thumbnail: string;
   images: string[];
 };
+
+export type ProductReviewType = {
+  comment: string;
+  date: string;
+  rating: number;
+  reviewerEmail: string;
+  reviewerName: string;
+};
