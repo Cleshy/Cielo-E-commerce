@@ -22,8 +22,9 @@ function ProductImages({
         effect="blur"
       />
       <div className="flex flex-wrap gap-3 lg:justify-center">
-        {images.map((image) => (
+        {images.map((image, index) => (
           <LazyLoadImage
+            key={index}
             className="w-full p-1 mx-auto rounded-lg shadow max-w-20 lg:max-w-22"
             src={image}
             alt={`Product image of ${productTitle}`}
