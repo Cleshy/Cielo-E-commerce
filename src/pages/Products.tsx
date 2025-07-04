@@ -1,44 +1,17 @@
 import type { JSX } from "react";
 import ProductsFilterBar from "../components/products/ProductsFilterBar";
-import { useState, useEffect } from "react";
-import CollectionGrid from "../components/products/ProductsGrid";
+import { useState } from "react";
+import ProductsGrid from "../components/products/ProductsGrid";
 import Loader from "../components/ui/Loader";
-import type { ProductType } from "../types/types";
-import CollectionFilterSort from "../components/products/ProductsFilterSort";
+import ProductsFilterSort from "../components/products/ProductsFilterSort";
 
-function Collection(): JSX.Element {
-  const [products, setProducts] = useState<ProductType[] | null>(null);
-  const [category, setCategory] = useState<string | null>(null);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [error, setError] = useState<string | null>(null);
+import useFetchProducts from "../hooks/useFetchProducts";
+
+function Products(): JSX.Element {
+  const { products, isLoading, error, setSort, setOrder, refetch } =
+    useFetchProducts({});
 
   const [showFilterModal, setShowFilterModal] = useState<boolean>(false);
-
-  useEffect(() => {
-    const fetchProducts = async () => {
-      setIsLoading(true);
-
-      const URL = category
-        ? `https://dummyjson.com/products/category/${category}`
-        : `https://dummyjson.com/products`;
-
-      try {
-        const res = await fetch(URL);
-
-        if (!res.ok) {
-          throw new Error("We couldn’t load the collection.");
-        }
-
-        const data = await res.json();
-        setProducts(data.products);
-      } catch (error) {
-        setError(error instanceof Error ? error.message : "Unknown error");
-      } finally {
-        setIsLoading(false);
-      }
-    };
-    fetchProducts();
-  }, [category]);
 
   const handleModalShow = (): void => {
     setShowFilterModal(true);
@@ -46,10 +19,6 @@ function Collection(): JSX.Element {
 
   const handleModalClose = (): void => {
     setShowFilterModal(false);
-  };
-
-  const handleCategorySelect = (category: string): void => {
-    setCategory(category);
   };
 
   return (
@@ -61,16 +30,16 @@ function Collection(): JSX.Element {
       ) : (
         <>
           <ProductsFilterBar onClick={handleModalShow} />
-          {products && <CollectionGrid products={products} />}
-          <CollectionFilterSort
+          {products && <ProductsGrid products={products} />}
+          {/* <ProductsFilterSort
             setCategory={handleCategorySelect}
             showFilterModal={showFilterModal}
             closeFilterModal={handleModalClose}
-          />
+          /> */}
         </>
       )}
     </section>
   );
 }
 
-export default Collection;
+export default Products;
