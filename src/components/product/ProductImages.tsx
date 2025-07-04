@@ -14,16 +14,16 @@ function ProductImages({
   images,
 }: ProductImagesProps): JSX.Element {
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-6 md:flex-1">
       <LazyLoadImage
-        className="max-w-50 mx-auto"
+        className="mx-auto max-w-50"
         alt={`Product image of ${productTitle}`}
         src={thumbnail}
       />
-      <div className="flex">
+      <div className="flex flex-wrap gap-4">
         {images.map((image) => (
           <LazyLoadImage
-            className="max-w-20 mx-auto w-full shadow rounded-xl p-1"
+            className="w-full p-1 mx-auto rounded-lg shadow max-w-20 lg:max-w-25"
             src={image}
             alt={`Product image of ${productTitle}`}
           />

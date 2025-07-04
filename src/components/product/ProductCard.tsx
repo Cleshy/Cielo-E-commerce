@@ -14,25 +14,27 @@ type ProductCardProps = {
 
 function ProductCard({ product }: ProductCardProps): JSX.Element {
   return (
-    <div className="bg-white shadow rounded-lg p-4 pb-60 flex flex-col gap-4">
-      <div className="flex flex-col gap-6 pb-4 border-b border-brand/30">
+    <div className="bg-white shadow rounded-lg p-4 flex flex-col gap-4 xl:max-w-[70%] xl:mx-auto">
+      <div className="flex flex-col gap-6 pb-4 border-b lg:border-none lg:gap-12 md:flex-row border-brand/30">
         <ProductImages
           thumbnail={product.thumbnail}
           productTitle={product.title}
           images={product.images}
         />
-        <div className="flex flex-col gap-2">
-          <h2 className="text-xl font-bold">{product.title}</h2>
-          <p>{product.description}</p>
-        </div>
-        <p className="text-3xl font-bold">${product.price}</p>
-        <div className="flex self-end gap-4 mt-auto">
-          <Button className="p-2 text-white transition-all duration-200 ease-in-out rounded-full bg-brand hover:bg-brand-dark">
-            <Icon icon={FaRegHeart} />
-          </Button>
-          <Button className="p-2 text-white transition-all duration-200 ease-in-out rounded-full bg-brand hover:bg-brand-dark">
-            <Icon icon={FaShoppingCart} />
-          </Button>
+        <div className="flex flex-1 md:flex-col">
+          <div className="flex flex-col gap-2">
+            <h2 className="text-xl font-bold">{product.title}</h2>
+            <p>{product.description}</p>
+            <p className="text-3xl font-bold xl:mt-10">${product.price}</p>
+          </div>
+          <div className="flex self-end gap-4 mt-auto">
+            <Button className="p-2 text-white transition-all duration-200 ease-in-out rounded-full bg-brand hover:bg-brand-dark">
+              <Icon icon={FaRegHeart} />
+            </Button>
+            <Button className="p-2 text-white transition-all duration-200 ease-in-out rounded-full bg-brand hover:bg-brand-dark">
+              <Icon icon={FaShoppingCart} />
+            </Button>
+          </div>
         </div>
       </div>
       <div className="pb-4 border-b border-brand/30">
