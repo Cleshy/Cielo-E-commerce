@@ -16,6 +16,7 @@ function ProductsCard({ product }: { product: ProductType }): JSX.Element {
           className="flex-1 object-contain transition-transform duration-200 ease-in-out group-hover:scale-110 w-30"
           src={product.thumbnail}
           alt={`Thumbnail of product: ${product.title}`}
+          effect="blur"
         />
         <div className="flex flex-col gap-2 flex-2">
           <h3 className="w-40 font-semibold truncate">{product.title}</h3>
