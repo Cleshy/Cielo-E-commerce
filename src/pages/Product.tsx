@@ -5,8 +5,8 @@ import { useParams, Link } from "react-router-dom";
 import Loader from "../components/ui/Loader";
 import { FaArrowLeft } from "react-icons/fa";
 import Icon from "../components/ui/Icon";
-import Button from "../components/ui/Button";
 import ProductCard from "../components/product/ProductCard";
+import RelatedProducts from "../components/product/RelatedProducts";
 
 function Product(): JSX.Element {
   const [product, setProduct] = useState<ProductType | null>(null);
@@ -39,8 +39,9 @@ function Product(): JSX.Element {
   }
 
   return (
-    <section className="relative my-4">
+    <section className="relative my-4 flex flex-col gap-8 max-w-[25rem] md:max-w-max mx-auto">
       {product && <ProductCard product={product} />}
+      {product && <RelatedProducts category={product.category} />}
       <Link to="/products">
         <Icon
           className="fixed bottom-5 left-5 bg-brand text-white p-2 rounded-full"
