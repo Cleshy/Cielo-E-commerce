@@ -1,25 +1,14 @@
 import { useState, useEffect } from "react";
-import type { ProductType } from "../types/types";
-
-type UseFetchProductsParams = {
-  sort?: string;
-  order?: "asc" | "desc";
-  limit?: number;
-  skip?: number;
-};
-
-type UseFetchProductsResult = {
-  products: ProductType[] | null;
-  isLoading: boolean;
-  error: string | null;
-  setSort: (value: string) => void;
-  setOrder: (value: "asc" | "desc") => void;
-  refetch: () => void;
-};
+import type {
+  ProductType,
+  UseFetchProductsParams,
+  UseFetchProductsResult,
+} from "../types/types";
 
 function useFetchProducts({
-  sort = "price",
-  order = "desc",
+  sort,
+  order,
+  category,
   limit = 12,
   skip = 0,
 }: UseFetchProductsParams): UseFetchProductsResult {
@@ -27,19 +16,20 @@ function useFetchProducts({
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const [sortBy, setSortBy] = useState<string>(sort);
-  const [sortOrder, setSortOrder] = useState<"asc" | "desc">(order);
-
   const [trigger, setTrigger] = useState<number>(0);
 
   const fetchProducts = async () => {
     setIsLoading(true);
     setError(null);
 
+    const URL = category
+      ? `https://dummyjson.com/products/category/${category}?limit=${limit}&skip=${skip}&sortBy=${sort}&order=${order}`
+      : `https://dummyjson.com/products?limit=${limit}&skip=${skip}&sortBy=${sort}&order=${order}`;
+
+    console.log("Sort: ", sort);
+
     try {
-      const res = await fetch(
-        `https://dummyjson.com/products?limit=${limit}&skip=${skip}&sortBy=${sortBy}&order=${sortOrder}`
-      );
+      const res = await fetch(URL);
 
       if (!res.ok) {
         throw new Error("Failed to fetch products");
@@ -56,14 +46,12 @@ function useFetchProducts({
 
   useEffect(() => {
     fetchProducts();
-  }, [sortBy, sortOrder, limit, skip, trigger]);
+  }, [sort, order, category, limit, skip, trigger]);
 
   return {
     products,
     isLoading,
     error,
-    setSort: setSortBy,
-    setOrder: setSortOrder,
     refetch: () => setTrigger((prev) => prev + 1),
   };
 }

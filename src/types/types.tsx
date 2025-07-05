@@ -34,3 +34,18 @@ export type ProductReviewType = {
   reviewerEmail: string;
   reviewerName: string;
 };
+
+export type UseFetchProductsParams = {
+  sort?: string | null;
+  order?: string;
+  limit?: number;
+  skip?: number;
+  category?: string | null;
+};
+
+export type UseFetchProductsResult = {
+  products: ProductType[] | null;
+  isLoading: boolean;
+  error: string | null;
+  refetch: () => void;
+};

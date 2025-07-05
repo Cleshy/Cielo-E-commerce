@@ -1,36 +1,53 @@
-import type { JSX, ReactNode } from "react";
-import Icon from "./Icon";
+import { useState, type ReactNode, type JSX, type MouseEvent } from "react";
 import { IoIosArrowUp } from "react-icons/io";
+import type { IconType } from "react-icons";
 
 type AccordionProps = {
   title: string;
   children: ReactNode;
-  showItem: boolean;
-  onClick: () => void;
+  icon?: IconType;
+  isOpen?: boolean;
+  defaultOpen?: boolean;
+  onToggle?: (open: boolean) => void;
+  wrapperClassName?: string;
+  headerClassName?: string;
+  contentClassName?: string;
 };
 
 function Accordion({
   title,
   children,
-  showItem,
-  onClick,
+  icon: Icon = IoIosArrowUp,
+  isOpen,
+  defaultOpen = false,
+  onToggle,
+  wrapperClassName = "rounded bg-brand/20",
+  headerClassName = "flex gap-5 items-center justify-between cursor-pointer",
+  contentClassName = "h-full p-2",
 }: AccordionProps): JSX.Element {
+  const [internalOpen, setInternalOpen] = useState(defaultOpen);
+  const isControlled = isOpen !== undefined;
+  const open = isControlled ? isOpen : internalOpen;
+
+  const handleToggle = (e: MouseEvent) => {
+    if (!isControlled) setInternalOpen((prev) => !prev);
+    onToggle?.(!open);
+  };
+
   return (
-    <div className="rounded bg-brand/20">
-      {/* Accordion title + Icon */}
-      <div className="flex items-center justify-between px-2 py-1">
+    <div className={wrapperClassName}>
+      <div className={headerClassName} onClick={handleToggle}>
         <p className="font-semibold tracking-wide">{title}</p>
-        <Icon
-          icon={IoIosArrowUp}
-          size="1.5rem"
-          onClick={onClick}
-          className={`transition-transform duration-300 ease-in-out ${
-            showItem && "rotate-180"
-          }`}
-        />
+        {Icon && (
+          <Icon
+            size="1.25rem"
+            className={`transition-transform duration-300 ${
+              open ? "rotate-180" : ""
+            }`}
+          />
+        )}
       </div>
-      {/* Accordion content */}
-      {showItem && <div className="h-full p-2">{children}</div>}
+      {open && <div className={contentClassName}>{children}</div>}
     </div>
   );
 }
