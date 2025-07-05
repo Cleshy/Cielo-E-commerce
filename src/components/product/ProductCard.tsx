@@ -7,6 +7,7 @@ import Icon from "../ui/Icon";
 import Button from "../ui/Button";
 import { IoMdArrowDropright } from "react-icons/io";
 import ProductReviews from "./ProductReviews";
+import ProductReviewStars from "./ProductReviewStars";
 
 type ProductCardProps = {
   product: ProductType;
@@ -23,6 +24,7 @@ function ProductCard({ product }: ProductCardProps): JSX.Element {
         />
         <div className="flex flex-col flex-1 gap-8">
           <div className="flex flex-col gap-2">
+            <ProductReviewStars rating={product.rating} />
             <h2 className="text-xl font-bold">{product.title}</h2>
             <p className="text-justify">{product.description}</p>
             <p className="mt-2 text-3xl font-bold">${product.price}</p>

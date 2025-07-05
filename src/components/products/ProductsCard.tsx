@@ -7,6 +7,7 @@ import Button from "../ui/Button";
 import { Link } from "react-router-dom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
+import ProductReviewStars from "../product/ProductReviewStars";
 
 function ProductsCard({ product }: { product: ProductType }): JSX.Element {
   return (
@@ -19,6 +20,7 @@ function ProductsCard({ product }: { product: ProductType }): JSX.Element {
           effect="blur"
         />
         <div className="flex flex-col gap-2 flex-2">
+          <ProductReviewStars rating={product.rating} />
           <h3 className="w-40 font-semibold truncate">{product.title}</h3>
           <p className="text-sm text-justify line-clamp-3 xl:line-clamp-4">
             {product.description}

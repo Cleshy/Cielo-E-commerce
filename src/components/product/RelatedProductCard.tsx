@@ -3,6 +3,7 @@ import type { ProductType } from "../../types/types";
 import { FaRegHeart, FaShoppingCart } from "react-icons/fa";
 import Icon from "../ui/Icon";
 import Button from "../ui/Button";
+import ProductReviewStars from "./ProductReviewStars";
 
 type RelatedProductCardProps = {
   product: ProductType;
@@ -17,6 +18,7 @@ function RelatedProductCard({ product }: RelatedProductCardProps): JSX.Element {
         alt={`Product image of ${product.title}`}
       />
       <div className="flex flex-col gap-2 mb-4">
+        <ProductReviewStars rating={product.rating} />
         <h3 className="text-lg font-bold truncate">{product.title}</h3>
         <p className="text-sm text-justify line-clamp-2">
           {product.description}
