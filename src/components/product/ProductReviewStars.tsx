@@ -12,7 +12,7 @@ function ProductReviewStars({ rating }: ProductReviewStarsProps): JSX.Element {
         i < rating ? (
           <FaStar className="text-yellow-500" key={i} />
         ) : (
-          <FaRegStar className="opacity-60" key={i} />
+          <FaRegStar className="opacity-30" key={i} />
         )
       )}
     </div>

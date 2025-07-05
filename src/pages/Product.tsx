@@ -39,12 +39,12 @@ function Product(): JSX.Element {
   }
 
   return (
-    <section className="relative my-4 flex flex-col gap-8 max-w-[25rem] md:max-w-max mx-auto">
+    <section className="relative flex flex-col gap-8 my-4">
       {product && <ProductCard product={product} />}
       {product && <RelatedProducts category={product.category} />}
       <Link to="/products">
         <Icon
-          className="fixed bottom-5 left-5 bg-brand text-white p-2 rounded-full"
+          className="fixed p-2 text-white rounded-full bottom-5 left-5 bg-brand"
           size="2.5rem"
           icon={FaArrowLeft}
         />

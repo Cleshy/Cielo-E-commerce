@@ -21,7 +21,7 @@ function ProductImages({
         src={thumbnail}
         effect="blur"
       />
-      <div className="flex flex-wrap gap-3 lg:justify-center">
+      <div className="flex flex-wrap justify-center gap-3 lg:justify-center">
         {images.map((image, index) => (
           <LazyLoadImage
             key={index}

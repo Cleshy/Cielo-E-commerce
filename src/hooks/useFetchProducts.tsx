@@ -26,8 +26,6 @@ function useFetchProducts({
       ? `https://dummyjson.com/products/category/${category}?limit=${limit}&skip=${skip}&sortBy=${sort}&order=${order}`
       : `https://dummyjson.com/products?limit=${limit}&skip=${skip}&sortBy=${sort}&order=${order}`;
 
-    console.log("Sort: ", sort);
-
     try {
       const res = await fetch(URL);
 

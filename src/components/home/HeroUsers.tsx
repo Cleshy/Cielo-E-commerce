@@ -12,16 +12,14 @@ import img_6 from "../../assets/portraits/portrait_6.webp";
 function HeroUsers(): JSX.Element {
   return (
     <>
-      <div className="flex mt-6 lg:mt-10">
+      <div className="flex gap-1 mt-6 lg:mt-10">
         {[img_1, img_2, img_3, img_4, img_5, img_6].map((img, index) => (
           <LazyLoadImage
             key={index}
             effect="blur"
             src={img}
             alt="Customer portrait"
-            className={`w-12 h-12 border-2 rounded-full border-brand relative ${
-              index > 0 ? "-translate-x-3" : ""
-            }`}
+            className={`w-12 h-12 border-2 rounded-full border-brand`}
           />
         ))}
       </div>
