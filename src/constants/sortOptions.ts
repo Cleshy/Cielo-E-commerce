@@ -10,7 +10,7 @@ import type { IconType } from "react-icons";
 
 type SortOption = {
   label: string;
-  sortBy: string;
+  sort: string;
   order: "asc" | "desc";
   icon: IconType;
 };
@@ -18,31 +18,31 @@ type SortOption = {
 export const sortOptions: SortOption[] = [
   {
     label: "Default",
-    sortBy: "id",
+    sort: "id",
     order: "asc",
     icon: FaSlidersH,
   },
   {
     label: "Title",
-    sortBy: "title",
+    sort: "title",
     order: "asc",
     icon: FaSortAlphaDown,
   },
   {
     label: "Cheap",
-    sortBy: "price",
+    sort: "price",
     order: "asc",
     icon: FaSortNumericDown,
   },
   {
     label: "Expensive",
-    sortBy: "price",
+    sort: "price",
     order: "desc",
     icon: FaSortNumericDownAlt,
   },
   {
     label: "Rating",
-    sortBy: "rating",
+    sort: "rating",
     order: "desc",
     icon: FaRegStar,
   },

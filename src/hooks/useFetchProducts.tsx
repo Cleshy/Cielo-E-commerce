@@ -1,40 +1,20 @@
 import { useState, useEffect } from "react";
-import type { ProductType } from "../types/types";
-
-type UseFetchProductsParams = {
-  sort?: string | null;
-  order?: "asc" | "desc";
-  limit?: number;
-  skip?: number;
-  productCategory?: string | null;
-};
-
-type UseFetchProductsResult = {
-  products: ProductType[] | null;
-  isLoading: boolean;
-  error: string | null;
-  sort: string;
-  setSort: (value: string) => void;
-  setOrder: (value: "asc" | "desc") => void;
-  category: string | null;
-  setCategory: (value: string | null) => void;
-  refetch: () => void;
-};
+import type {
+  ProductType,
+  UseFetchProductsParams,
+  UseFetchProductsResult,
+} from "../types/types";
 
 function useFetchProducts({
-  sort = null,
-  order = "asc",
+  sort,
+  order,
+  category,
   limit = 12,
   skip = 0,
-  productCategory = null,
 }: UseFetchProductsParams): UseFetchProductsResult {
   const [products, setProducts] = useState<ProductType[] | null>(null);
-  const [category, setCategory] = useState<string | null>(productCategory);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-
-  const [sortBy, setSortBy] = useState<string | null>(sort);
-  const [sortOrder, setSortOrder] = useState<"asc" | "desc">(order);
 
   const [trigger, setTrigger] = useState<number>(0);
 
@@ -43,8 +23,10 @@ function useFetchProducts({
     setError(null);
 
     const URL = category
-      ? `https://dummyjson.com/products/category/${category}?limit=${limit}&skip=${skip}&sortBy=${sortBy}&order=${sortOrder}`
-      : `https://dummyjson.com/products?limit=${limit}&skip=${skip}&sortBy=${sortBy}&order=${sortOrder}`;
+      ? `https://dummyjson.com/products/category/${category}?limit=${limit}&skip=${skip}&sortBy=${sort}&order=${order}`
+      : `https://dummyjson.com/products?limit=${limit}&skip=${skip}&sortBy=${sort}&order=${order}`;
+
+    console.log("Sort: ", sort);
 
     try {
       const res = await fetch(URL);
@@ -64,17 +46,12 @@ function useFetchProducts({
 
   useEffect(() => {
     fetchProducts();
-  }, [sortBy, sortOrder, category, limit, skip, trigger]);
+  }, [sort, order, category, limit, skip, trigger]);
 
   return {
     products,
     isLoading,
     error,
-    sort,
-    setSort: setSortBy,
-    setOrder: setSortOrder,
-    category,
-    setCategory,
     refetch: () => setTrigger((prev) => prev + 1),
   };
 }

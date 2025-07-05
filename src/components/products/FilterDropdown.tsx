@@ -5,18 +5,14 @@ import { FaFilter } from "react-icons/fa";
 import Accordion from "../ui/Accordion";
 import { productCategories } from "../../utils/productCategories";
 import { formatCategory } from "../../utils/textFormat";
+import { useProductsContext } from "../../context/ProductsProvider";
 
-type FilterDropdownProps = {
-  category: string | null;
-  setCategory: (value: string) => void;
-};
+function FilterDropdown(): JSX.Element {
+  const { category, setCategory } = useProductsContext();
 
-function FilterDropdown({
-  category,
-  setCategory,
-}: FilterDropdownProps): JSX.Element {
   return (
     <Dropdown
+      menuClassNames="min-w-[343px] md:min-w-[600px]"
       origin="left"
       button={
         <Button className="flex items-center gap-2">
@@ -25,7 +21,7 @@ function FilterDropdown({
         </Button>
       }
     >
-      <div className="p-3 w-full min-w-[344px]">
+      <div className="p-3 w-full">
         <Accordion
           title="Category"
           wrapperClassName="w-full"

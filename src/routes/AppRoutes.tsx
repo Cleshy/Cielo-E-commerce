@@ -3,6 +3,8 @@ import type { JSX } from "react";
 import { Routes, Route } from "react-router-dom";
 import Layout from "../components/layout/Layout";
 
+import ProductsProdiver from "../context/ProductsProvider";
+
 import Home from "../pages/Home";
 import About from "../pages/About";
 import Contact from "../pages/Contact";
@@ -22,7 +24,14 @@ function AppRoutes(): JSX.Element {
         <Route path="about" element={<About />} />
         <Route path="categories" element={<Categories />} />
         <Route path="contact" element={<Contact />} />
-        <Route path="products" element={<Products />} />
+        <Route
+          path="products"
+          element={
+            <ProductsProdiver>
+              <Products />
+            </ProductsProdiver>
+          }
+        />
         <Route path="products/:id" element={<Product />} />
         <Route path="login" element={<Login />} />
         <Route path="wishlist" element={<Wishlist />} />

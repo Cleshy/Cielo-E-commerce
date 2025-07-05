@@ -4,9 +4,15 @@ type DropdownProps = {
   origin: string;
   button: ReactNode;
   children: ReactNode;
+  menuClassNames?: string;
 };
 
-function Dropdown({ origin, button, children }: DropdownProps): JSX.Element {
+function Dropdown({
+  origin,
+  button,
+  children,
+  menuClassNames,
+}: DropdownProps): JSX.Element {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement | null>(null);
 
@@ -34,7 +40,7 @@ function Dropdown({ origin, button, children }: DropdownProps): JSX.Element {
       </div>
       {isOpen && (
         <div
-          className={`absolute ${origin}-0 z-10 mt-2 origin-top-${origin} rounded bg-brand shadow-lg text-white`}
+          className={`absolute ${origin}-0 z-10 mt-2 origin-top-${origin} rounded bg-brand shadow-lg text-white ${menuClassNames}`}
         >
           {children}
         </div>
