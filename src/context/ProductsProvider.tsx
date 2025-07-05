@@ -6,7 +6,7 @@ type ProductsContextType = {
   products: ProductType[] | null;
   isLoading: boolean;
   error: string | null;
-  sort: string | null;
+  sort: string;
   setSort: (value: string) => void;
   setOrder: (value: "asc" | "desc") => void;
   category: string | null;
@@ -18,7 +18,7 @@ const ProductsContext = createContext<ProductsContextType | undefined>(
 );
 
 function ProductsProvider({ children }: { children: ReactNode }) {
-  const [sort, setSort] = useState<string | null>(null);
+  const [sort, setSort] = useState<string>("");
   const [order, setOrder] = useState<"asc" | "desc">("asc");
   const [category, setCategory] = useState<string | null>(null);
   const { products, isLoading, error } = useFetchProducts({

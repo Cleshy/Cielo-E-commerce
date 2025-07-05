@@ -4,6 +4,7 @@ import Button from "../ui/Button";
 import { sortOptions } from "../../constants/sortOptions";
 import { TiArrowUnsorted } from "react-icons/ti";
 import { useProductsContext } from "../../context/ProductsProvider";
+import { setFirstLetterUppercase } from "../../utils/textFormat";
 
 function SortDropdown(): JSX.Element {
   const { sort, setSort, setOrder } = useProductsContext();
@@ -19,7 +20,8 @@ function SortDropdown(): JSX.Element {
       button={
         <Button className="flex items-center gap-1">
           <TiArrowUnsorted size="1.25rem" />
-          {sort && sort === "id" ? "Default" : "Sort"}
+          {sort && sort === "id" ? "Default" : setFirstLetterUppercase(sort)}
+          {!sort && "Sort"}
         </Button>
       }
     >

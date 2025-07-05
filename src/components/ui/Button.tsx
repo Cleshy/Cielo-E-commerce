@@ -21,7 +21,7 @@ function Button({
   disabled = false,
 }: ButtonProps): JSX.Element {
   const base =
-    "cursor-pointer inline-flex items-center justify-center font-medium rounded-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-brand-dark focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed";
+    "cursor-pointer inline-flex items-center justify-center font-medium rounded-md transition-all duration-200 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed";
 
   const variantStyle = {
     primary: "bg-brand hover:bg-brand-dark disabled:hover:bg-brand text-white",
