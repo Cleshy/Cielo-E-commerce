@@ -8,12 +8,15 @@ import Button from "../ui/Button";
 import { IoMdArrowDropright } from "react-icons/io";
 import ProductReviews from "./ProductReviews";
 import ProductReviewStars from "./ProductReviewStars";
+import { useWishlistContext } from "../../context/WishlistProvider";
 
 type ProductCardProps = {
   product: ProductType;
 };
 
 function ProductCard({ product }: ProductCardProps): JSX.Element {
+  const { saveProduct } = useWishlistContext();
+
   return (
     <div className="bg-white shadow rounded-lg p-4 flex flex-col gap-4 xl:max-w-[80%] xl:mx-auto">
       <div className="flex flex-col gap-6 pb-4 border-b lg:border-none lg:gap-12 md:flex-row border-brand/30">
@@ -30,7 +33,14 @@ function ProductCard({ product }: ProductCardProps): JSX.Element {
             <p className="mt-2 text-3xl font-bold">${product.price}</p>
           </div>
           <div className="flex self-end gap-4 mt-auto">
-            <Button className="p-2 text-white transition-all duration-200 ease-in-out rounded-full bg-brand hover:bg-brand-dark">
+            <Button
+              className="p-2 text-white transition-all duration-200 ease-in-out rounded-full bg-brand hover:bg-brand-dark"
+              onClick={(e) => {
+                e.stopPropagation();
+                e.preventDefault();
+                saveProduct(product);
+              }}
+            >
               <Icon icon={FaRegHeart} />
             </Button>
             <Button className="p-2 text-white transition-all duration-200 ease-in-out rounded-full bg-brand hover:bg-brand-dark">

@@ -1,4 +1,4 @@
-import type { JSX } from "react";
+import { type JSX } from "react";
 import type { ProductType } from "../../types/types";
 import { FaRegHeart } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
@@ -8,8 +8,11 @@ import { Link } from "react-router-dom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import ProductReviewStars from "../product/ProductReviewStars";
+import { useWishlistContext } from "../../context/WishlistProvider";
 
 function ProductsCard({ product }: { product: ProductType }): JSX.Element {
+  const { saveProduct } = useWishlistContext();
+
   return (
     <Link to={`/products/${product.id}`}>
       <div className="relative flex flex-row h-full gap-6 p-4 border-b group border-brand/20 md:border-none md:shadow md:rounded-lg">
@@ -27,7 +30,14 @@ function ProductsCard({ product }: { product: ProductType }): JSX.Element {
           </p>
           <p className="self-end my-3 text-2xl font-bold">${product.price}</p>
           <div className="flex self-end gap-4 mt-auto">
-            <Button className="p-2 text-white transition-all duration-200 ease-in-out rounded-full bg-brand hover:bg-brand-dark">
+            <Button
+              onClick={(e) => {
+                e.stopPropagation();
+                e.preventDefault();
+                saveProduct(product);
+              }}
+              className="p-2 text-white transition-all duration-200 ease-in-out rounded-full bg-brand hover:bg-brand-dark"
+            >
               <Icon icon={FaRegHeart} />
             </Button>
             <Button className="p-2 text-white transition-all duration-200 ease-in-out rounded-full bg-brand hover:bg-brand-dark">

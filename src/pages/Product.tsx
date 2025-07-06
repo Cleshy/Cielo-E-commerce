@@ -24,7 +24,6 @@ function Product(): JSX.Element {
         const data = await res.json();
 
         setProduct(data);
-        console.log(data);
       } catch (error) {
       } finally {
         setIsLoading(false);
