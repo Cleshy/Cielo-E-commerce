@@ -20,6 +20,12 @@ function useWishList() {
     }
   }, []);
 
+  const isWishlisted = (currentProduct: ProductType): boolean => {
+    return wishlist.some(
+      (wishlistedProduct) => wishlistedProduct.id === currentProduct.id
+    );
+  };
+
   const saveProduct = (item: ProductType): void => {
     const exists = wishlist.some((p) => p.id === item.id);
     if (!exists) {
@@ -41,7 +47,7 @@ function useWishList() {
     removeItem();
   };
 
-  return { wishlist, saveProduct, removeProduct, clearWishList };
+  return { wishlist, isWishlisted, saveProduct, removeProduct, clearWishList };
 }
 
 export default useWishList;
