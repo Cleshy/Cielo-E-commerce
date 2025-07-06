@@ -23,7 +23,7 @@ function WishlistProductCard({
   return (
     <Link to={`/products/${product.id}`}>
       <div className="relative p-3 text-center bg-white rounded-lg shadow group">
-        <FaHeartCircleCheck className="absolute transform rotate-25 text-brand/15 top-4 right-3 text-7xl" />
+        <FaHeartCircleCheck className="absolute text-4xl transform rotate-25 text-brand/20 top-2 right-2" />
         <LazyLoadImage
           effect="blur"
           className="w-40"

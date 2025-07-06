@@ -15,12 +15,12 @@ function Wishlist() {
         Your Wishlist
       </h1>
       {wishlist.length === 0 ? (
-        <div className="flex flex-col items-center gap-6 mt-8 md:gap-8 md:mt-6">
+        <div className="flex flex-col items-center gap-6 mt-8 md:gap-8 md:mt-14">
           <LazyLoadImage
             effect="blur"
             src="/wishlist.svg"
             alt="Illustration of a wishlist on mobile."
-            className="w-50"
+            className="w-50 lg:w-80"
           />
           <p className="italic text-center">
             No treasures saved yet. Discover our collection and curate your

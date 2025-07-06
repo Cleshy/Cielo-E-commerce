@@ -31,7 +31,7 @@ function Product(): JSX.Element {
     };
 
     fetchProduct();
-  }, []);
+  }, [id]);
 
   if (isLoading) {
     return <Loader />;

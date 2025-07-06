@@ -2,6 +2,7 @@ import { type JSX } from "react";
 import type { ProductType } from "../../types/types";
 import ProductImages from "./ProductImages";
 import { FaRegHeart } from "react-icons/fa";
+import { FaHeartCircleCheck } from "react-icons/fa6";
 import { FaShoppingCart } from "react-icons/fa";
 import Icon from "../ui/Icon";
 import Button from "../ui/Button";
@@ -15,7 +16,7 @@ type ProductCardProps = {
 };
 
 function ProductCard({ product }: ProductCardProps): JSX.Element {
-  const { saveProduct } = useWishlistContext();
+  const { isWishlisted, saveProduct } = useWishlistContext();
 
   return (
     <div className="bg-white shadow rounded-lg p-4 flex flex-col gap-4 xl:max-w-[80%] xl:mx-auto">
@@ -41,7 +42,9 @@ function ProductCard({ product }: ProductCardProps): JSX.Element {
                 saveProduct(product);
               }}
             >
-              <Icon icon={FaRegHeart} />
+              <Icon
+                icon={isWishlisted(product) ? FaHeartCircleCheck : FaRegHeart}
+              />
             </Button>
             <Button className="p-2 text-white transition-all duration-200 ease-in-out rounded-full bg-brand hover:bg-brand-dark">
               <Icon icon={FaShoppingCart} />

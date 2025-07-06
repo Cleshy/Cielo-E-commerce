@@ -18,7 +18,7 @@ function RelatedProducts({ category }: RelatedProductsProps): JSX.Element {
       setIsLoading(true);
       try {
         const res = await fetch(
-          `https://dummyjson.com/products/category/${category}?limit=5`
+          `https://dummyjson.com/products/category/${category}?limit=10`
         );
 
         if (!res.ok) {

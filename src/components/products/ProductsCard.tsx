@@ -9,9 +9,10 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import ProductReviewStars from "../product/ProductReviewStars";
 import { useWishlistContext } from "../../context/WishlistProvider";
+import { FaHeartCircleCheck } from "react-icons/fa6";
 
 function ProductsCard({ product }: { product: ProductType }): JSX.Element {
-  const { saveProduct } = useWishlistContext();
+  const { isWishlisted, saveProduct } = useWishlistContext();
 
   return (
     <Link to={`/products/${product.id}`}>
@@ -38,7 +39,9 @@ function ProductsCard({ product }: { product: ProductType }): JSX.Element {
               }}
               className="p-2 text-white transition-all duration-200 ease-in-out rounded-full bg-brand hover:bg-brand-dark"
             >
-              <Icon icon={FaRegHeart} />
+              <Icon
+                icon={isWishlisted(product) ? FaHeartCircleCheck : FaRegHeart}
+              />
             </Button>
             <Button className="p-2 text-white transition-all duration-200 ease-in-out rounded-full bg-brand hover:bg-brand-dark">
               <Icon icon={FaShoppingCart} />
