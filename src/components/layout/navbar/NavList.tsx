@@ -11,7 +11,7 @@ type NavListType = {
 function NavList({ showNav, closeMenu }: NavListType): JSX.Element {
   return (
     <div
-      className={`absolute top-0 left-0 md:relative md:translate-x-0 bg-white w-full h-screen md:w-auto md:h-auto p-5 md:p-0 transition-all duration-300 ease-in-out ${
+      className={`absolute z-50 top-0 left-0 md:relative md:translate-x-0 bg-white w-full h-screen md:w-auto md:h-auto p-5 md:p-0 transition-all duration-300 ease-in-out ${
         showNav ? "translate-x-0" : "-translate-x-[150%]"
       }`}
     >

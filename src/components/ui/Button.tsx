@@ -3,7 +3,7 @@ import clsx from "clsx";
 
 type ButtonProps = {
   children: ReactNode;
-  onClick?: () => void;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   variant?: "primary" | "secondary";
   type?: "button" | "submit";
   size?: "sm" | "md" | "lg";
@@ -30,7 +30,7 @@ function Button({
   };
 
   const sizeStyles = {
-    sm: "py-1 px-2 text-sm",
+    sm: "py-2 px-3 text-sm",
     md: "py-1.5 px-4",
     lg: "py-2 px-5 text-lg",
   };

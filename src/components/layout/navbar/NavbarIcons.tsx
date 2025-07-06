@@ -3,19 +3,27 @@ import { FaRegHeart, FaRegUser, FaRegMoon } from "react-icons/fa";
 import type { JSX } from "react";
 import Icon from "../../ui/Icon";
 import { Link } from "react-router";
+import { useWishlistContext } from "../../../context/WishlistProvider";
 
 function NavbarIcons(): JSX.Element {
+  const { wishlist } = useWishlistContext();
+
   return (
-    <div className="flex gap-4 ml-auto md:ml-0">
+    <div className="flex gap-5 ml-auto md:ml-0">
       <div className="flex items-center gap-2">
         <button>
           <Icon icon={FaRegMoon} label="Toggle Dark Mode" />
         </button>
       </div>
-      <div className="flex items-center gap-2">
+      <div className="relative flex items-center gap-2">
         <Link to="/wishlist">
           <Icon icon={FaRegHeart} label="Wishlist" />
         </Link>
+        {wishlist.length > 0 && (
+          <span className="absolute flex items-center justify-center w-5 h-5 text-xs font-semibold text-white rounded-full bg-brand -top-4 -right-4">
+            {wishlist.length}
+          </span>
+        )}
         <Link
           to="/wishlist"
           className="hidden text-sm xl:block hover:underline"
