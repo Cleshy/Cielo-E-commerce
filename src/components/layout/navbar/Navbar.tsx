@@ -3,7 +3,7 @@ import { FiMenu } from "react-icons/fi";
 import Icon from "../../ui/Icon";
 import clsx from "clsx";
 import NavbarIcons from "./NavbarIcons";
-import NavList from "../navbar/NavList";
+import NavList from "./NavList";
 import { Link } from "react-router";
 
 const SCROLL_THRESHOLD = 400;

@@ -1,7 +1,7 @@
 import type { JSX } from "react";
 import type { ProductType } from "../../types/types";
 import { Link } from "react-router";
-import ProductReviewStars from "../product/ProductReviewStars";
+import ProductReviewStars from "../Product/ProductReviewStars";
 import Button from "../ui/Button";
 import Icon from "../ui/Icon";
 import { FaShoppingCart } from "react-icons/fa";

@@ -7,7 +7,7 @@ import Button from "../ui/Button";
 import { Link } from "react-router-dom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
-import ProductReviewStars from "../product/ProductReviewStars";
+import ProductReviewStars from "../Product/ProductReviewStars";
 import { useWishlistContext } from "../../context/WishlistProvider";
 import { FaHeartCircleCheck } from "react-icons/fa6";
 
