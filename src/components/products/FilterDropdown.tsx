@@ -9,7 +9,7 @@ import { formatCategory } from "../../utils/textFormat";
 import { useProductsContext } from "../../context/ProductsProvider";
 
 function FilterDropdown(): JSX.Element {
-  const { category, setCategory } = useProductsContext();
+  const { category, setCategory, isLoading } = useProductsContext();
 
   const clearFilter = (): void => {
     setCategory(null);
@@ -21,7 +21,7 @@ function FilterDropdown(): JSX.Element {
         menuClassNames="min-w-[343px] md:min-w-[600px]"
         origin="left"
         button={
-          <Button className="flex items-center gap-2">
+          <Button className="flex items-center gap-2" disabled={isLoading}>
             <FaFilter />
             {category ? formatCategory(category) : "Filter"}
           </Button>
@@ -29,6 +29,7 @@ function FilterDropdown(): JSX.Element {
       >
         <div className="p-3 w-full">
           <Button
+            disabled={isLoading}
             onClick={() => clearFilter()}
             className="mb-3 flex gap-3 bg-brand-dark hover:bg-brand-neutral-dark"
           >

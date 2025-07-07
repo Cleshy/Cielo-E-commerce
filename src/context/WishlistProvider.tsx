@@ -1,4 +1,4 @@
-import useWishList from "../hooks/useWishList";
+import useWishlist from "../hooks/useWishList";
 import { createContext, type ReactNode } from "react";
 import type { ProductType } from "../types/types";
 import { useContext } from "react";
@@ -19,7 +19,7 @@ const WishlistContext = createContext<WishlistContextType | null>(null);
 
 function WishlistProvider({ children }: WishlistProviderProps) {
   const { wishlist, isWishlisted, saveProduct, removeProduct, clearWishList } =
-    useWishList();
+    useWishlist();
 
   return (
     <WishlistContext.Provider

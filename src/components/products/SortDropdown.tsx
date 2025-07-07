@@ -7,7 +7,7 @@ import { useProductsContext } from "../../context/ProductsProvider";
 import { setFirstLetterUppercase } from "../../utils/textFormat";
 
 function SortDropdown(): JSX.Element {
-  const { sort, setSort, setOrder } = useProductsContext();
+  const { sort, setSort, setOrder, isLoading } = useProductsContext();
 
   const handleSortChange = (sort: string, order: "asc" | "desc") => {
     setSort(sort);
@@ -18,7 +18,7 @@ function SortDropdown(): JSX.Element {
     <Dropdown
       origin="right"
       button={
-        <Button className="flex items-center gap-1">
+        <Button disabled={isLoading} className="flex items-center gap-1">
           <TiArrowUnsorted size="1.25rem" />
           {sort && sort === "id" ? "Default" : setFirstLetterUppercase(sort)}
           {!sort && "Sort"}
