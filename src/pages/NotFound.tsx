@@ -1,13 +1,14 @@
 import type { JSX } from "react";
 import { Link } from "react-router-dom";
+import LazyLoadImg from "../components/ui/LazyLoadImg";
 
 function NotFound(): JSX.Element {
   return (
-    <section className="text-center flex flex-col items-center gap-8 lg:gap-12 mt-6 md:mt-10">
-      <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold">
+    <section className="flex flex-col items-center gap-8 mt-6 text-center lg:gap-12 md:mt-10">
+      <h1 className="text-2xl font-bold md:text-3xl lg:text-4xl">
         This Page Doesn't Exist.
       </h1>
-      <img
+      <LazyLoadImg
         src="/404.svg"
         alt="Illustration representing a missing page."
         className="w-[18rem] md:w-[25rem]"
@@ -17,7 +18,7 @@ function NotFound(): JSX.Element {
       </p>
       <Link
         to="/"
-        className="font-medium bg-brand py-2 px-4 rounded text-white hover:bg-brand-dark transition-all duration-200 ease-in-out"
+        className="px-4 py-2 font-medium text-white transition-all duration-200 ease-in-out rounded bg-brand hover:bg-brand-dark"
       >
         Return to the Home Page
       </Link>

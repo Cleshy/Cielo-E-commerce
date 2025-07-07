@@ -1,10 +1,10 @@
 import type { JSX } from "react";
 import Button from "../ui/Button";
-
-import heroImg from "../../assets/hero_img.png";
 import { Link } from "react-router-dom";
-import { LazyLoadImage } from "react-lazy-load-image-component";
-import "react-lazy-load-image-component/src/effects/blur.css";
+
+import LazyLoadImg from "../ui/LazyLoadImg";
+import heroImg from "../../assets/hero_img.png";
+
 import HeroUsers from "./HeroUsers";
 import HeroList from "./HeroList";
 
@@ -30,11 +30,10 @@ function Hero(): JSX.Element {
         <HeroList />
         <HeroUsers />
       </div>
-      <LazyLoadImage
+      <LazyLoadImg
         src={heroImg}
         alt="An image of a luxury parfume."
         className="flex-1 hidden max-w-xl mt-20 md:block w-100"
-        effect="blur"
       />
     </section>
   );
