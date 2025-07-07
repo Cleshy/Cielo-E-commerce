@@ -9,6 +9,8 @@ import { MdDeleteForever } from "react-icons/md";
 import LazyLoadImg from "../ui/LazyLoadImg";
 import { useWishlistContext } from "../../context/WishlistProvider";
 import { FaHeartCircleCheck } from "react-icons/fa6";
+import { useCart } from "../../context/CartProvider";
+import { BsFillCartCheckFill, BsFillCartFill } from "react-icons/bs";
 
 type WishlistProductCardProps = {
   product: ProductType;
@@ -17,7 +19,8 @@ type WishlistProductCardProps = {
 function WishlistProductCard({
   product,
 }: WishlistProductCardProps): JSX.Element {
-  const { removeProduct } = useWishlistContext();
+  const { removeFromWishlist } = useWishlistContext();
+  const { addToCart, isAddedToCart } = useCart();
 
   return (
     <Link to={`/products/${product.id}`}>
@@ -44,14 +47,26 @@ function WishlistProductCard({
               onClick={(e) => {
                 e.stopPropagation();
                 e.preventDefault();
-                removeProduct(product.id);
+                removeFromWishlist(product.id);
               }}
               size="sm"
             >
               <Icon size="1.25rem" icon={MdDeleteForever} />
             </Button>
-            <Button size="sm">
-              <Icon size="1.25rem" icon={FaShoppingCart} />
+            <Button
+              size="sm"
+              onClick={(e) => {
+                e.stopPropagation();
+                e.preventDefault();
+                addToCart(product);
+              }}
+            >
+              <Icon
+                size="1.25rem"
+                icon={
+                  isAddedToCart(product) ? BsFillCartCheckFill : BsFillCartFill
+                }
+              />
             </Button>
           </div>
         </div>

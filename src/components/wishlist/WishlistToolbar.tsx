@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useWishlistContext } from "../../context/WishlistProvider";
 
 function WishlistToolbar(): JSX.Element {
-  const { clearWishList } = useWishlistContext();
+  const { clearWishlist } = useWishlistContext();
 
   const navigate = useNavigate();
 
@@ -13,7 +13,7 @@ function WishlistToolbar(): JSX.Element {
       <Button size="sm" onClick={() => navigate("/products")}>
         Collection
       </Button>
-      <Button size="sm" onClick={clearWishList}>
+      <Button size="sm" onClick={clearWishlist}>
         Clear Wishlist
       </Button>
     </div>

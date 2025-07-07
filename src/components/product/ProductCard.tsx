@@ -3,20 +3,22 @@ import type { ProductType } from "../../types/types";
 import ProductImages from "./ProductImages";
 import { FaRegHeart } from "react-icons/fa";
 import { FaHeartCircleCheck } from "react-icons/fa6";
-import { FaShoppingCart } from "react-icons/fa";
 import Icon from "../ui/Icon";
 import Button from "../ui/Button";
 import { IoMdArrowDropright } from "react-icons/io";
 import ProductReviews from "./ProductReviews";
 import ProductReviewStars from "./ProductReviewStars";
 import { useWishlistContext } from "../../context/WishlistProvider";
+import { useCart } from "../../context/CartProvider";
+import { BsFillCartCheckFill, BsFillCartFill } from "react-icons/bs";
 
 type ProductCardProps = {
   product: ProductType;
 };
 
 function ProductCard({ product }: ProductCardProps): JSX.Element {
-  const { isWishlisted, saveProduct } = useWishlistContext();
+  const { isWishlisted, addToWishlist } = useWishlistContext();
+  const { addToCart, isAddedToCart } = useCart();
 
   return (
     <div className="bg-white shadow rounded-lg p-4 flex flex-col gap-4 xl:max-w-[80%] xl:mx-auto">
@@ -39,15 +41,26 @@ function ProductCard({ product }: ProductCardProps): JSX.Element {
               onClick={(e) => {
                 e.stopPropagation();
                 e.preventDefault();
-                saveProduct(product);
+                addToWishlist(product);
               }}
             >
               <Icon
                 icon={isWishlisted(product) ? FaHeartCircleCheck : FaRegHeart}
               />
             </Button>
-            <Button className="p-2 text-white transition-all duration-200 ease-in-out rounded-full bg-brand hover:bg-brand-dark">
-              <Icon icon={FaShoppingCart} />
+            <Button
+              onClick={(e) => {
+                e.stopPropagation();
+                e.preventDefault();
+                addToCart(product);
+              }}
+              className="p-2 text-white transition-all duration-200 ease-in-out rounded-full bg-brand hover:bg-brand-dark"
+            >
+              <Icon
+                icon={
+                  isAddedToCart(product) ? BsFillCartCheckFill : BsFillCartFill
+                }
+              />
             </Button>
           </div>
         </div>
