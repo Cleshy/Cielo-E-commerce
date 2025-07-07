@@ -1,6 +1,6 @@
 import type { JSX } from "react";
-import ProductsToolbar from "../components/products/ProductsToolbar";
-import ProductsGrid from "../components/products/ProductsGrid";
+import ProductsToolbar from "../components/Products/ProductsToolbar";
+import ProductsGrid from "../components/Products/ProductsGrid";
 import Loader from "../components/ui/Loader";
 import { useProductsContext } from "../context/ProductsProvider";
 
