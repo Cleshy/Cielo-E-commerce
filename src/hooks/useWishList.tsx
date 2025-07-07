@@ -1,10 +1,8 @@
 import { useState, useEffect } from "react";
 import type { ProductType } from "../types/types";
 import useLocalStorage from "./useLocalStorage";
-import { useNavigate } from "react-router";
 
-function useWishList() {
-  const navigate = useNavigate();
+function useWishlist() {
   const { setItem, getItem, removeItem } =
     useLocalStorage<ProductType[]>("my-cielo-wishlist");
 
@@ -39,7 +37,6 @@ function useWishList() {
     const updated = wishlist.filter((p) => p.id !== id);
     setWishlist(updated);
     setItem(updated);
-    navigate("/wishlist");
   };
 
   const clearWishList = (): void => {
@@ -50,4 +47,4 @@ function useWishList() {
   return { wishlist, isWishlisted, saveProduct, removeProduct, clearWishList };
 }
 
-export default useWishList;
+export default useWishlist;

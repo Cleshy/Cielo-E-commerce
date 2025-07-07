@@ -1,13 +1,14 @@
 import WishlistGrid from "../components/wishlist/WishlistGrid";
 import { useWishlistContext } from "../context/WishlistProvider";
-import Button from "../components/ui/Button";
-import { useNavigate } from "react-router";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
+import Button from "../components/ui/Button";
+import WishlistToolbar from "../components/wishlist/WishlistToolbar";
+import { useNavigate } from "react-router";
 
 function Wishlist() {
-  const { wishlist, clearWishList } = useWishlistContext();
   const navigate = useNavigate();
+  const { wishlist } = useWishlistContext();
 
   return (
     <section className="my-8 sm:my-12">
@@ -32,14 +33,7 @@ function Wishlist() {
         </div>
       ) : (
         <div className="flex flex-col gap-4 mt-6">
-          <div className="flex justify-between">
-            <Button size="sm" onClick={() => navigate("/products")}>
-              Collection
-            </Button>
-            <Button size="sm" onClick={clearWishList}>
-              Clear Wishlist
-            </Button>
-          </div>
+          <WishlistToolbar />
           <WishlistGrid wishlist={wishlist} />
         </div>
       )}

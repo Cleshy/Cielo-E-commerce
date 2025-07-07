@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import type {
   ProductType,
   UseFetchProductsParams,
@@ -12,39 +12,48 @@ function useFetchProducts({
   limit = 12,
   skip = 0,
 }: UseFetchProductsParams): UseFetchProductsResult {
-  const [products, setProducts] = useState<ProductType[] | null>(null);
+  const [products, setProducts] = useState<ProductType[] | []>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-
   const [trigger, setTrigger] = useState<number>(0);
 
-  const fetchProducts = async () => {
-    setIsLoading(true);
-    setError(null);
+  const fetchProducts = useCallback(
+    async (signal?: AbortSignal) => {
+      setIsLoading(true);
+      setError(null);
 
-    const URL = category
-      ? `https://dummyjson.com/products/category/${category}?limit=${limit}&skip=${skip}&sortBy=${sort}&order=${order}`
-      : `https://dummyjson.com/products?limit=${limit}&skip=${skip}&sortBy=${sort}&order=${order}`;
+      const params = new URLSearchParams({
+        limit: limit.toString(),
+        skip: skip.toString(),
+        ...(sort && { sort }),
+        ...(order && { order }),
+      });
 
-    try {
-      const res = await fetch(URL);
+      const url = category
+        ? `https://dummyjson.com/products/category/${category}?${params}`
+        : `https://dummyjson.com/products?${params}`;
 
-      if (!res.ok) {
-        throw new Error("Failed to fetch products");
+      try {
+        const res = await fetch(url, { signal });
+        if (!res.ok) throw new Error("Failed to fetch products");
+        const data = await res.json();
+        setProducts(data.products);
+      } catch (err) {
+        if ((err as Error).name !== "AbortError") {
+          setError((err as Error).message);
+        }
+      } finally {
+        setIsLoading(false);
       }
-
-      const data = await res.json();
-      setProducts(data.products);
-    } catch (err) {
-      setError((err as Error).message);
-    } finally {
-      setIsLoading(false);
-    }
-  };
+    },
+    [sort, order, category, limit, skip]
+  );
 
   useEffect(() => {
-    fetchProducts();
-  }, [sort, order, category, limit, skip, trigger]);
+    const controller = new AbortController();
+    fetchProducts(controller.signal);
+    return () => controller.abort();
+  }, [fetchProducts, trigger]);
 
   return {
     products,
