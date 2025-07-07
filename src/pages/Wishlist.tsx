@@ -1,8 +1,7 @@
 import WishlistGrid from "../components/wishlist/WishlistGrid";
 import { useWishlistContext } from "../context/WishlistProvider";
-import { LazyLoadImage } from "react-lazy-load-image-component";
-import "react-lazy-load-image-component/src/effects/blur.css";
 import Button from "../components/ui/Button";
+import LazyLoadImg from "../components/ui/LazyLoadImg";
 import WishlistToolbar from "../components/wishlist/WishlistToolbar";
 import { useNavigate } from "react-router";
 
@@ -17,8 +16,7 @@ function Wishlist() {
       </h1>
       {wishlist.length === 0 ? (
         <div className="flex flex-col items-center gap-6 mt-8 md:gap-8 md:mt-14">
-          <LazyLoadImage
-            effect="blur"
+          <LazyLoadImg
             src="/wishlist.svg"
             alt="Illustration of a wishlist on mobile."
             className="w-50 lg:w-80"

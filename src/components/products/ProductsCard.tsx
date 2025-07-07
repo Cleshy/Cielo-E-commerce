@@ -5,8 +5,7 @@ import { FaShoppingCart } from "react-icons/fa";
 import Icon from "../ui/Icon";
 import Button from "../ui/Button";
 import { Link } from "react-router-dom";
-import { LazyLoadImage } from "react-lazy-load-image-component";
-import "react-lazy-load-image-component/src/effects/blur.css";
+import LazyLoadImg from "../ui/LazyLoadImg";
 import ProductReviewStars from "../Product/ProductReviewStars";
 import { useWishlistContext } from "../../context/WishlistProvider";
 import { FaHeartCircleCheck } from "react-icons/fa6";
@@ -17,11 +16,10 @@ function ProductsCard({ product }: { product: ProductType }): JSX.Element {
   return (
     <Link to={`/products/${product.id}`}>
       <div className="relative flex flex-row h-full gap-6 p-4 border-b group border-brand/20 md:border-none md:shadow md:rounded-lg">
-        <LazyLoadImage
+        <LazyLoadImg
           className="flex-1 object-contain transition-transform duration-200 ease-in-out group-hover:scale-110 w-30"
           src={product.thumbnail}
           alt={`Thumbnail of product: ${product.title}`}
-          effect="blur"
         />
         <div className="flex flex-col gap-2 flex-2">
           <ProductReviewStars rating={product.rating} />

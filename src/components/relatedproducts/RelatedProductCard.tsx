@@ -7,8 +7,7 @@ import Button from "../ui/Button";
 import ProductReviewStars from "../Product/ProductReviewStars";
 import { useWishlistContext } from "../../context/WishlistProvider";
 import { Link } from "react-router-dom";
-import { LazyLoadImage } from "react-lazy-load-image-component";
-import "react-lazy-load-image-component/src/effects/blur.css";
+import LazyLoadImg from "../ui/LazyLoadImg";
 
 type RelatedProductCardProps = {
   product: ProductType;
@@ -20,8 +19,7 @@ function RelatedProductCard({ product }: RelatedProductCardProps): JSX.Element {
   return (
     <Link to={`/products/${product.id}`}>
       <div className="flex flex-col h-full group">
-        <LazyLoadImage
-          effect="blur"
+        <LazyLoadImg
           className="group-hover:scale-110 transition-transform duration-300 ease-in-out w-[60%] mx-auto mb-10"
           src={product.thumbnail}
           alt={`Product image of ${product.title}`}

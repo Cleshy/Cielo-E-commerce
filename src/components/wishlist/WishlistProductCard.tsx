@@ -6,8 +6,7 @@ import Button from "../ui/Button";
 import Icon from "../ui/Icon";
 import { FaShoppingCart } from "react-icons/fa";
 import { MdDeleteForever } from "react-icons/md";
-import { LazyLoadImage } from "react-lazy-load-image-component";
-import "react-lazy-load-image-component/src/effects/blur.css";
+import LazyLoadImg from "../ui/LazyLoadImg";
 import { useWishlistContext } from "../../context/WishlistProvider";
 import { FaHeartCircleCheck } from "react-icons/fa6";
 
@@ -24,8 +23,7 @@ function WishlistProductCard({
     <Link to={`/products/${product.id}`}>
       <div className="relative p-3 text-center bg-white rounded-lg shadow group">
         <FaHeartCircleCheck className="absolute text-4xl transform rotate-25 text-brand/20 top-2 right-2" />
-        <LazyLoadImage
-          effect="blur"
+        <LazyLoadImg
           className="w-40"
           src={product.thumbnail}
           alt={`Image of ${product.title}`}

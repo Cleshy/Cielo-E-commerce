@@ -1,4 +1,4 @@
-import { useState, type ReactNode, type JSX, type MouseEvent } from "react";
+import { useState, type ReactNode, type JSX } from "react";
 import { IoIosArrowUp } from "react-icons/io";
 import type { IconType } from "react-icons";
 
@@ -29,7 +29,7 @@ function Accordion({
   const isControlled = isOpen !== undefined;
   const open = isControlled ? isOpen : internalOpen;
 
-  const handleToggle = (e: MouseEvent) => {
+  const handleToggle = () => {
     if (!isControlled) setInternalOpen((prev) => !prev);
     onToggle?.(!open);
   };
