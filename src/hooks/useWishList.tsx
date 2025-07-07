@@ -24,7 +24,7 @@ function useWishlist() {
     );
   };
 
-  const saveProduct = (item: ProductType): void => {
+  const addToWishlist = (item: ProductType): void => {
     const exists = wishlist.some((p) => p.id === item.id);
     if (!exists) {
       const update = [...wishlist, item];
@@ -33,18 +33,24 @@ function useWishlist() {
     }
   };
 
-  const removeProduct = (id: number): void => {
+  const removeFromWishlist = (id: number): void => {
     const updated = wishlist.filter((p) => p.id !== id);
     setWishlist(updated);
     setItem(updated);
   };
 
-  const clearWishList = (): void => {
+  const clearWishlist = (): void => {
     setWishlist([]);
     removeItem();
   };
 
-  return { wishlist, isWishlisted, saveProduct, removeProduct, clearWishList };
+  return {
+    wishlist,
+    isWishlisted,
+    addToWishlist,
+    removeFromWishlist,
+    clearWishlist,
+  };
 }
 
 export default useWishlist;

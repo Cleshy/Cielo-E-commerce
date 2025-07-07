@@ -4,9 +4,11 @@ import type { JSX } from "react";
 import Icon from "../../ui/Icon";
 import { Link } from "react-router";
 import { useWishlistContext } from "../../../context/WishlistProvider";
+import { useCart } from "../../../context/CartProvider";
 
 function NavbarIcons(): JSX.Element {
   const { wishlist } = useWishlistContext();
+  const { cart } = useCart();
 
   return (
     <div className="flex gap-5 ml-auto md:ml-0">
@@ -39,10 +41,15 @@ function NavbarIcons(): JSX.Element {
           Login
         </Link>
       </div>
-      <div className="flex items-center gap-2">
+      <div className="relative flex items-center gap-2">
         <Link to="/cart">
           <Icon icon={FiShoppingCart} label="Cart" />
         </Link>
+        {cart.length > 0 && (
+          <span className="absolute flex items-center justify-center w-5 h-5 text-xs font-semibold text-white rounded-full bg-brand -top-4 -right-4">
+            {cart.length}
+          </span>
+        )}
         <Link to="/cart" className="hidden text-sm xl:block hover:underline">
           Cart
         </Link>

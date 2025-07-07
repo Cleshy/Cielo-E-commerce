@@ -6,9 +6,9 @@ import { useContext } from "react";
 type WishlistContextType = {
   wishlist: ProductType[];
   isWishlisted: (value: ProductType) => boolean;
-  saveProduct: (item: ProductType) => void;
-  removeProduct: (id: number) => void;
-  clearWishList: () => void;
+  addToWishlist: (item: ProductType) => void;
+  removeFromWishlist: (id: number) => void;
+  clearWishlist: () => void;
 };
 
 type WishlistProviderProps = {
@@ -18,17 +18,22 @@ type WishlistProviderProps = {
 const WishlistContext = createContext<WishlistContextType | null>(null);
 
 function WishlistProvider({ children }: WishlistProviderProps) {
-  const { wishlist, isWishlisted, saveProduct, removeProduct, clearWishList } =
-    useWishlist();
+  const {
+    wishlist,
+    isWishlisted,
+    addToWishlist,
+    removeFromWishlist,
+    clearWishlist,
+  } = useWishlist();
 
   return (
     <WishlistContext.Provider
       value={{
         wishlist,
         isWishlisted,
-        saveProduct,
-        removeProduct,
-        clearWishList,
+        addToWishlist,
+        removeFromWishlist,
+        clearWishlist,
       }}
     >
       {children}
