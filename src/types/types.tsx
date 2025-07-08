@@ -25,6 +25,7 @@ export type ProductType = {
   minimumOrderQuantity: number;
   thumbnail: string;
   images: string[];
+  stock: number;
 };
 
 export type ProductReviewType = {
