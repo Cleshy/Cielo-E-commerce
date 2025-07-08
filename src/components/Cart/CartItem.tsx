@@ -12,6 +12,7 @@ function CartItem({
   thumbnail,
   price,
   quantity,
+  stock,
 }: CartItemType): JSX.Element {
   const { removeFromCart } = useCart();
 
@@ -27,7 +28,10 @@ function CartItem({
       />
       <div className="flex flex-col flex-1">
         <h3 className="text-sm font-semibold line-clamp-1">{title}</h3>
-        <p className="mt-3">{formatPrice(price)}</p>
+        <div className="flex justify-between items-center mt-2">
+          <p>{formatPrice(price)}</p>
+          <p className="text-xs opacity-50">Stock: {stock}</p>
+        </div>
         <div className="flex items-center justify-between mt-auto">
           <button
             onClick={(e) => {
