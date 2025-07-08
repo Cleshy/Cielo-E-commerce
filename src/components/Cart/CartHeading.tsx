@@ -1,8 +1,8 @@
-import type { JSX } from "react";
-import { useCart } from "../../context/CartProvider";
+import { useState, type JSX } from "react";
+import ClearCartModal from "./ClearCartModal";
 
 function CartHeading(): JSX.Element {
-  const { clearCart } = useCart();
+  const [showModal, setShowModal] = useState<boolean>(false);
 
   return (
     <div className="flex justify-between">
@@ -12,12 +12,14 @@ function CartHeading(): JSX.Element {
       <button
         type="button"
         className="pt-1 cursor-pointer text-brand"
-        onClick={() => {
-          if (confirm("Are you sure you want to clear your cart?")) clearCart();
-        }}
+        onClick={() => setShowModal(true)}
       >
         Clear Cart
       </button>
+      <ClearCartModal
+        showModal={showModal}
+        closeModal={() => setShowModal(false)}
+      />
     </div>
   );
 }
