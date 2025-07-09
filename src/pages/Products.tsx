@@ -3,12 +3,13 @@ import ProductsToolbar from "../components/Products/ProductsToolbar";
 import ProductsGrid from "../components/Products/ProductsGrid";
 import Loader from "../components/ui/Loader";
 import { useProductsContext } from "../context/ProductsProvider";
+import Section from "../components/ui/Section";
 
 function Products(): JSX.Element {
   const { products, isLoading, error } = useProductsContext();
 
   return (
-    <section className="py-8">
+    <Section>
       {isLoading ? (
         <Loader />
       ) : error ? (
@@ -19,7 +20,7 @@ function Products(): JSX.Element {
           {products && <ProductsGrid products={products} />}
         </>
       )}
-    </section>
+    </Section>
   );
 }
 

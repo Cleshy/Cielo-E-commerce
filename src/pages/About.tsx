@@ -1,8 +1,13 @@
-function About() {
+import type { JSX } from "react";
+import Section from "../components/ui/Section";
+
+function About(): JSX.Element {
   return (
-    <section className="py-10 mx-auto">
+    <Section ariaLabelledby="About heading">
       <div className="flex flex-col gap-4 pb-8 text-center border-b-2 border-brand/20 lg:border-none">
-        <h1 className="text-4xl font-semibold">About Us</h1>
+        <h1 id="about-heading" className="text-4xl font-semibold">
+          About Us
+        </h1>
         <p className="mx-auto text-justify text-gray-700 max-w-prose">
           Welcome to our curated emporium of fine products, where timeless
           elegance meets modern convenience. Our mission is to offer discerning
@@ -54,7 +59,7 @@ function About() {
           </li>
         </ul>
       </div>
-    </section>
+    </Section>
   );
 }
 

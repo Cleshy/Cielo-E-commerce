@@ -13,7 +13,7 @@ function CartSummary({
   showCartModal,
 }: CartSummaryProps): JSX.Element {
   return (
-    <section
+    <div
       aria-label="Order summary"
       className="p-5 bg-brand/10 rounded-lg md:mt-6"
     >
@@ -33,7 +33,7 @@ function CartSummary({
       >
         Checkout
       </button>
-    </section>
+    </div>
   );
 }
 

@@ -5,6 +5,7 @@ import CartHeading from "../components/Cart/CartHeading";
 import CartItemList from "../components/Cart/CartItemList";
 import CartSummary from "../components/Cart/CartSummary";
 import CheckoutModal from "../components/Cart/CheckoutModal";
+import Section from "../components/ui/Section";
 
 function Cart(): JSX.Element {
   const { cart, isCartEmpty, cartItemCount, total } = useCart();
@@ -15,7 +16,7 @@ function Cart(): JSX.Element {
   };
 
   return (
-    <section className="mt-8" aria-labelledby="cart-heading">
+    <Section aria-labelledby="cart-heading">
       {isCartEmpty ? (
         <EmptyCart />
       ) : (
@@ -32,7 +33,7 @@ function Cart(): JSX.Element {
           <CheckoutModal closeModal={closeModal} showModal={showCartModal} />
         </>
       )}
-    </section>
+    </Section>
   );
 }
 
