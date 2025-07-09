@@ -52,10 +52,3 @@ export type UseFetchProductsResult = {
 };
 
 export type CartItemType = ProductType & { quantity: number };
-
-export type CartAction =
-  | { type: "ADD_TO_CART"; payload: ProductType }
-  | { type: "INCREASE_QUANTITY"; payload: number }
-  | { type: "DECREASE_QUANTITY"; payload: number }
-  | { type: "REMOVE_FROM_CART"; payload: number }
-  | { type: "CLEAR_CART" };
