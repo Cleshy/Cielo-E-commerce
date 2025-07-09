@@ -21,7 +21,7 @@ function Cart(): JSX.Element {
       ) : (
         <>
           <CartHeading />
-          <div className="grid grid-cols-1 items-start md:grid-cols-[2fr_1fr] gap-8">
+          <div className="grid grid-cols-1 items-start lg:grid-cols-[2fr_1fr] gap-8">
             <CartItemList items={cart} />
             <CartSummary
               total={total}
