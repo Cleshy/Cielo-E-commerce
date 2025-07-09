@@ -1,10 +1,11 @@
 import type { JSX } from "react";
 import { Link } from "react-router-dom";
 import LazyLoadImg from "../components/ui/LazyLoadImg";
+import Section from "../components/ui/Section";
 
 function NotFound(): JSX.Element {
   return (
-    <section className="flex flex-col items-center gap-8 mt-6 text-center lg:gap-12 md:mt-10">
+    <Section className="flex flex-col items-center gap-8 text-center lg:gap-12">
       <h1 className="text-2xl font-bold md:text-3xl lg:text-4xl">
         This Page Doesn't Exist.
       </h1>
@@ -22,7 +23,7 @@ function NotFound(): JSX.Element {
       >
         Return to the Home Page
       </Link>
-    </section>
+    </Section>
   );
 }
 

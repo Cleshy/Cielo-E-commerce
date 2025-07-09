@@ -55,7 +55,7 @@ function Navbar(): JSX.Element {
           isFixed ? "fixed top-0" : "relative"
         )}
       >
-        <nav className="container flex items-center gap-4 mx-auto lg:px-20 md:gap-0 md:justify-between">
+        <nav className="max-w-6xl flex items-center gap-4 mx-auto md:gap-0 md:justify-between">
           <Icon
             className="md:hidden"
             icon={FiMenu}

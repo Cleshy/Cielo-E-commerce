@@ -32,15 +32,6 @@ function NavList({ showNav, closeMenu }: NavListType): JSX.Element {
           </Link>
         </li>
         <li>
-          <Link
-            to="/categories"
-            onClick={closeMenu}
-            className="hover:underline"
-          >
-            Categories
-          </Link>
-        </li>
-        <li>
           <Link to="/about" onClick={closeMenu} className="hover:underline">
             About
           </Link>

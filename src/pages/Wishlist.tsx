@@ -4,14 +4,18 @@ import Button from "../components/ui/Button";
 import LazyLoadImg from "../components/ui/LazyLoadImg";
 import WishlistToolbar from "../components/wishlist/WishlistToolbar";
 import { useNavigate } from "react-router";
+import Section from "../components/ui/Section";
 
 function Wishlist() {
   const navigate = useNavigate();
   const { wishlist } = useWishlistContext();
 
   return (
-    <section className="my-8 sm:my-12">
-      <h1 className="text-3xl font-bold text-center sm:text-4xl xl:text-5xl">
+    <Section ariaLabelledby="Wishlist heading">
+      <h1
+        id="wishlist-heading"
+        className="text-3xl font-bold text-center sm:text-4xl xl:text-5xl"
+      >
         Your Wishlist
       </h1>
       {wishlist.length === 0 ? (
@@ -35,7 +39,7 @@ function Wishlist() {
           <WishlistGrid wishlist={wishlist} />
         </div>
       )}
-    </section>
+    </Section>
   );
 }
 

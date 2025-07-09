@@ -1,14 +1,18 @@
 import type { JSX } from "react";
 import { Link } from "react-router-dom";
 import LazyLoadImg from "../ui/LazyLoadImg";
+import Section from "../ui/Section";
 
 function EmptyCart(): JSX.Element {
   return (
-    <section
-      aria-label="Empty cart"
-      className="mt-8 flex flex-col itmes-center"
+    <Section
+      aria-labelledby="Empty cart heading"
+      className="flex flex-col itmes-center"
     >
-      <h1 className="text-2xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-brand to-brand-dark">
+      <h1
+        id="empty-cart-heading"
+        className="text-2xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-brand to-brand-dark"
+      >
         Your cart is currently empty.
       </h1>
       <LazyLoadImg
@@ -25,7 +29,7 @@ function EmptyCart(): JSX.Element {
           Shopping &rarr;
         </Link>
       </p>
-    </section>
+    </Section>
   );
 }
 

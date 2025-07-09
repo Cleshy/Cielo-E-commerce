@@ -1,8 +1,13 @@
-function Contact() {
+import type { JSX } from "react";
+import Section from "../components/ui/Section";
+import Button from "../components/ui/Button";
+
+function Contact(): JSX.Element {
   return (
-    <div>
+    <Section ariaLabelledby="Contact heading">
       <h1>Contact Page</h1>
-    </div>
+      <Button>Primary</Button>
+    </Section>
   );
 }
 

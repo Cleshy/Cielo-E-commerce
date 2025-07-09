@@ -1,12 +1,18 @@
 import type { JSX, ReactNode } from "react";
 import clsx from "clsx";
 
+const VARIANTS = ["primary", "secondary"] as const;
+const SIZES = ["sm", "md", "lg"] as const;
+
+type ButtonVariant = (typeof VARIANTS)[number];
+type ButtonSize = (typeof SIZES)[number];
+
 type ButtonProps = {
   children: ReactNode;
-  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
-  variant?: "primary" | "secondary";
-  type?: "button" | "submit";
-  size?: "sm" | "md" | "lg";
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  variant?: ButtonVariant;
+  type?: "button" | "submit" | "reset";
+  size?: ButtonSize;
   className?: string;
   disabled?: boolean;
 };
