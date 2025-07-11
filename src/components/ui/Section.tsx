@@ -14,7 +14,7 @@ function Section({
   return (
     <section
       aria-labelledby={ariaLabelledby}
-      className={`mt-8 mb-12 max-w-6xl w-full mx-auto px-4 ${className}`}
+      className={`container mx-auto mt-8 mb-12 px-4 ${className}`}
     >
       {children}
     </section>

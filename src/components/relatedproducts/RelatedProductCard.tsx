@@ -4,7 +4,7 @@ import { FaRegHeart } from "react-icons/fa";
 import { FaHeartCircleCheck } from "react-icons/fa6";
 import Icon from "../ui/Icon";
 import Button from "../ui/Button";
-import ProductReviewStars from "../Product/ProductReviewStars";
+import ProductReviewStars from "../product/ProductReviewStars";
 import { useWishlistContext } from "../../context/WishlistProvider";
 import { Link } from "react-router-dom";
 import LazyLoadImg from "../ui/LazyLoadImg";
