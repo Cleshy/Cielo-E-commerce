@@ -1,12 +1,14 @@
+import { lazy } from "react";
+
 import Home from "../pages/Home";
-import About from "../pages/About";
-import Contact from "../pages/Contact";
-import Products from "../pages/Products";
-import Login from "../pages/Login";
-import Wishlist from "../pages/Wishlist";
-import Cart from "../pages/Cart";
-import NotFound from "../pages/NotFound";
-import Product from "../pages/Product";
+const About = lazy(() => import("../pages/About"));
+const Contact = lazy(() => import("../pages/Contact"));
+const Products = lazy(() => import("../pages/Products"));
+const Login = lazy(() => import("../pages/Login"));
+const Wishlist = lazy(() => import("../pages/Wishlist"));
+const Cart = lazy(() => import("../pages/Cart"));
+const NotFound = lazy(() => import("../pages/NotFound"));
+const Product = lazy(() => import("../pages/Product"));
 
 import type { JSX } from "react";
 

@@ -11,7 +11,7 @@ function Wishlist() {
   const { wishlist } = useWishlistContext();
 
   return (
-    <Section ariaLabelledby="Wishlist heading">
+    <Section ariaLabelledby="Wishlist heading" className="max-w-6xl">
       <h1
         id="wishlist-heading"
         className="text-3xl font-bold text-center sm:text-4xl xl:text-5xl"

@@ -3,12 +3,12 @@ import Section from "../components/ui/Section";
 
 function About(): JSX.Element {
   return (
-    <Section ariaLabelledby="About heading">
+    <Section ariaLabelledby="About heading" className="max-w-6xl">
       <div className="flex flex-col gap-4 pb-8 text-center border-b-2 border-brand/20 lg:border-none">
         <h1 id="about-heading" className="text-4xl font-semibold">
           About Us
         </h1>
-        <p className="mx-auto text-justify text-gray-700 max-w-prose">
+        <p className="mx-auto text-justify text-gray-700">
           Welcome to our curated emporium of fine products, where timeless
           elegance meets modern convenience. Our mission is to offer discerning
           customers a refined and effortless shopping experience, grounded in
@@ -22,7 +22,7 @@ function About(): JSX.Element {
       </div>
       <div className="py-10 text-center">
         <h2 className="mb-4 text-3xl font-medium">Our Ethos</h2>
-        <p className="mx-auto text-justify text-gray-700 max-w-prose">
+        <p className="mx-auto text-justify text-gray-700">
           In a world of fleeting trends, we celebrate enduring value. Our
           platform is crafted to serve those who appreciate subtle
           sophistication and thoughtful selection, presenting each product with
@@ -31,7 +31,7 @@ function About(): JSX.Element {
       </div>
       <div className="text-left">
         <h2 className="mb-6 text-3xl font-medium text-center">What We Offer</h2>
-        <ul className="flex flex-col gap-4 pl-6 mx-auto text-sm text-gray-700 list-disc max-w-prose marker:text-brand">
+        <ul className="flex flex-col gap-4 pl-6 mx-auto text-sm text-gray-700 list-disc marker:text-brand">
           <li>
             <strong>A Thoughtful Wishlist</strong>: Preserve your favored
             selections with ease, safeguarded locally to ensure your preferences

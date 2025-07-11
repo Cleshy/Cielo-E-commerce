@@ -16,7 +16,7 @@ function Cart(): JSX.Element {
   };
 
   return (
-    <Section aria-labelledby="cart-heading">
+    <Section aria-labelledby="cart-heading" className="max-w-5xl">
       {isCartEmpty ? (
         <EmptyCart />
       ) : (

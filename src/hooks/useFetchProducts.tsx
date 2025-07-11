@@ -12,7 +12,7 @@ function useFetchProducts({
   limit = 12,
   skip = 0,
 }: UseFetchProductsParams): UseFetchProductsResult {
-  const [products, setProducts] = useState<ProductType[] | []>([]);
+  const [products, setProducts] = useState<ProductType[] | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [trigger, setTrigger] = useState<number>(0);

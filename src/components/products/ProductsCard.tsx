@@ -5,7 +5,7 @@ import Icon from "../ui/Icon";
 import Button from "../ui/Button";
 import { useNavigate } from "react-router-dom";
 import LazyLoadImg from "../ui/LazyLoadImg";
-import ProductReviewStars from "../Product/ProductReviewStars";
+import ProductReviewStars from "../product/ProductReviewStars";
 import { useWishlistContext } from "../../context/WishlistProvider";
 import { FaHeartCircleCheck } from "react-icons/fa6";
 import { useCart } from "../../context/CartProvider";

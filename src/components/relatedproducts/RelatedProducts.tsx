@@ -52,7 +52,7 @@ function RelatedProducts({ category }: RelatedProductsProps): JSX.Element {
   }
 
   return (
-    <div className="flex flex-col gap-6 mb-10">
+    <div className="flex flex-col gap-6 mb-10 max-w-5xl mx-auto xl">
       <h2 className="text-2xl font-semibold">You Might Also Like</h2>
       <div ref={sliderRef} className="py-2 keen-slider">
         {products?.map((product) => (

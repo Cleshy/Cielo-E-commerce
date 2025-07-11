@@ -1,10 +1,9 @@
 import type { JSX } from "react";
 import type { ProductType } from "../../types/types";
 import { Link } from "react-router";
-import ProductReviewStars from "../Product/ProductReviewStars";
+import ProductReviewStars from "../product/ProductReviewStars";
 import Button from "../ui/Button";
 import Icon from "../ui/Icon";
-import { FaShoppingCart } from "react-icons/fa";
 import { MdDeleteForever } from "react-icons/md";
 import LazyLoadImg from "../ui/LazyLoadImg";
 import { useWishlistContext } from "../../context/WishlistProvider";

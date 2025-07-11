@@ -1,7 +1,7 @@
 import type { JSX } from "react";
 import Loader from "../components/ui/Loader";
-import ProductCard from "../components/Product/ProductCard";
-import RelatedProducts from "../components/RelatedProducts/RelatedProducts";
+import ProductCard from "../components/product/ProductCard";
+import RelatedProducts from "../components/relatedproducts/RelatedProducts";
 import useProductDetails from "../hooks/useProductDetails";
 import Section from "../components/ui/Section";
 
